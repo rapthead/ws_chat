@@ -1,0 +1,4 @@
+Вы приглашены пользователем {{ request.user.get_display_name }} присоединиться к чату: {{ invite_url }}
+Учетные данные для входа:
+Имя для входа- {{ invited_user }}
+Пароль - {{ new_user_password }}

@@ -1,1 +1,6 @@
 ws_chat/settings/production.py
+static/bower_components/
+ws_chat/settings/dev.py
+*.pyc
+db.sqlite3
+static_root/
