@@ -31,10 +31,10 @@ class InviteForm(ModelForm):
             raise ValidationError(u"Пользователь с таким email уже существует")
         return data
 
-    def save(self, user=None, new_user_password=None, *args, **kwargs):
+    def save(self, commit=True, user=None, new_user_password=None, *args, **kwargs):
         self.instance.username = self.instance.email
         self.instance.set_password(new_user_password)
-        return super(InviteForm, self).save(*args, **kwargs)
+        return super(InviteForm, self).save(commit=commit)
 
     class Meta:
         model = UserProxyModel
@@ -56,9 +56,9 @@ class NewMessageForm(ModelForm):
 
         self.helper = helper
 
-    def save(self, user=None, *args, **kwargs):
+    def save(self, commit=True, user=None, *args, **kwargs):
         self.instance.user = user
-        super(NewMessageForm, self).save(*args, **kwargs)
+        return super(NewMessageForm, self).save(commit=commit)
 
     class Meta:
         model = Message
