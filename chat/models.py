@@ -4,6 +4,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.db.models import signals
+import redis
 
 
 class UserProxyModel(User):
@@ -29,3 +31,10 @@ class Message(models.Model):
     user = models.ForeignKey(UserProxyModel, verbose_name=u"Пользователь")
     time = models.DateTimeField(default=timezone.now, verbose_name=u"Время")
     tags = models.ManyToManyField(Tag, blank=True, verbose_name=u"Теги")
+
+
+def message_change(sender, **kwargs):
+    r = redis.StrictRedis()
+    r.publish('messages-updated', 1)
+
+signals.m2m_changed.connect(message_change, sender=Message.tags.through)

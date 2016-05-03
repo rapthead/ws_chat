@@ -212,4 +212,12 @@ $(function() {
         }
     });
     newMessageList = new NewMessageView();
+
+    var sock = new SockJS('http://' + location.hostname + ':8080/chat-ws');
+    sock.onmessage = function(e) {
+        console.log('backend changed');
+        $.when(messageList.collection.fetch(), messageList.all_tags.fetch()).then(function () {
+            messageList.render();
+        });
+    };
 });
