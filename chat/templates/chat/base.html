@@ -10,10 +10,25 @@
 
         <!-- Bootstrap -->
         {% compress css %}
-            <link rel="stylesheet" type="text/x-scss" href="{% static "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss" %}" />
-            <link rel="stylesheet" type="text/css" href="{% static "bower_components/font-awesome/css/font-awesome.css" %}" />
+            <link rel="stylesheet" type="text/x-scss" href="{% static "app/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss" %}" />
+            <link rel="stylesheet" type="text/css" href="{% static "app/bower_components/font-awesome/css/font-awesome.css" %}" />
+            <link rel="stylesheet" type="text/css" href="{% static "app/bower_components/select2/dist/css/select2.css" %}" />
+            <link rel="stylesheet" type="text/css" href="{% static "chat/chat.css" %}" />
         {% endcompress %}
+
         {% block css %}{% endblock %}
+
+        {% compress js %}
+            <script type="text/javascript" charset="utf-8" src="{% static "app/bower_components/jquery/dist/jquery.js" %}"></script>
+            <script type="text/javascript" charset="utf-8" src="{% static "app/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js" %}"></script>
+            <script type="text/javascript" charset="utf-8" src="{% static "chat/parsley_conf.js" %}"></script>
+            <script type="text/javascript" charset="utf-8" src="{% static "app/bower_components/parsleyjs/dist/parsley.js" %}"></script>
+            <script type="text/javascript" charset="utf-8" src="{% static "app/bower_components/js-cookie/src/js.cookie.js" %}"></script>
+            <script type="text/javascript" charset="utf-8" src="{% static "app/bower_components/jquery.serializeJSON/jquery.serializejson.js" %}"></script>
+            <script type="text/javascript" charset="utf-8" src="{% static "app/bower_components/select2/dist/js/select2.full.js" %}"></script>
+            <script type="text/javascript" charset="utf-8" src="{% static "app/bower_components/select2/dist/js/i18n/ru.js" %}"></script>
+        {% endcompress %}
+        {% block js %}{% endblock %}
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,11 +41,5 @@
         <div class="container">
             {% block content %}{% endblock %}
         </div>
-
-        {% compress js %}
-            <script type="text/javascript" charset="utf-8" src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
-            <script type="text/javascript" charset="utf-8" src="{% static "bower_components/bootstrap-sass/assets/javascripts/bootstrap.js" %}"></script>
-        {% endcompress %}
-        {% block js %}{% endblock %}
     </body>
 </html>

@@ -10,7 +10,7 @@ class UserProxyModel(User):
     class Meta:
         proxy = True
 
-    def get_display_name(self):
+    def display_name(self):
         if self.first_name:
             return self.first_name
         else:
@@ -25,7 +25,7 @@ class Tag(models.Model):
 
 
 class Message(models.Model):
-    message = models.TextField()
-    user = models.ForeignKey(UserProxyModel)
-    time = models.DateTimeField(default=timezone.now)
-    tags = models.ManyToManyField(Tag, blank=True)
+    message = models.TextField(verbose_name=u"Сообщение")
+    user = models.ForeignKey(UserProxyModel, verbose_name=u"Пользователь")
+    time = models.DateTimeField(default=timezone.now, verbose_name=u"Время")
+    tags = models.ManyToManyField(Tag, blank=True, verbose_name=u"Теги")

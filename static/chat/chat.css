@@ -1,0 +1,7 @@
+.message-list .media-body-tags .dropdown {
+    display: inline-block;
+}
+.message-list .media,
+.message-list .media-body {
+    overflow: visible;
+}

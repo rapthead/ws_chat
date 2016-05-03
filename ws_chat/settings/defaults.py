@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'compressor',
     'crispy_forms',
-    'django_select2',
+    # 'django_select2',
+    'rest_framework',
+    'parsley',
 
     'chat',
 ]
@@ -140,3 +142,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 AUTHENTICATION_BACKENDS = (
     'ws_chat.backends.ModelBackend',
 )
+
+APPEND_SLASH = False

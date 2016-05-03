@@ -5,11 +5,12 @@ from django.forms import ModelForm, ValidationError
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Submit
 from crispy_forms.bootstrap import StrictButton
-from django_select2.forms import Select2MultipleWidget
+from parsley.decorators import parsleyfy
 
 from .models import Message, UserProxyModel
 
 
+@parsleyfy
 class InviteForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(InviteForm, self).__init__(*args, **kwargs)
@@ -41,12 +42,7 @@ class InviteForm(ModelForm):
         fields = ('email',)
 
 
-# class UserUpdateForm(ModelForm):
-#     class Meta:
-#         model = User
-#         fields = ('name',)
-
-
+@parsleyfy
 class NewMessageForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(NewMessageForm, self).__init__(*args, **kwargs)
@@ -63,6 +59,3 @@ class NewMessageForm(ModelForm):
     class Meta:
         model = Message
         fields = ('message', 'tags')
-        widgets = {
-            'tags': Select2MultipleWidget
-        }
