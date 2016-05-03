@@ -4,12 +4,16 @@ Django==1.9.5
 django-appconf==1.0.2
 django-compressor==2.0
 django-crispy-forms==1.6.0
+django-filter==0.13.0
 django-libsass==0.6
+django-parsley==0.6
 Django-Select2==5.8.4
+djangorestframework==3.3.3
 ipdb==0.10.0
 ipython==4.2.0
 ipython-genutils==0.1.0
 libsass==0.11.1
+Markdown==2.6.6
 pathlib2==2.1.0
 pexpect==4.0.1
 pickleshare==0.7.2

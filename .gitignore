@@ -1,5 +1,5 @@
 ws_chat/settings/production.py
-*/bower_components/*
+bower_components/
 ws_chat/settings/dev.py
 *.pyc
 db.sqlite3
