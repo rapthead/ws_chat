@@ -15,7 +15,7 @@
     "test",
     "tests"
   ],
-  "directory": "static/",
+  "directory": "app/",
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "font-awesome": "^4.6.1",
@@ -23,6 +23,7 @@
     "parsleyjs": "^2.3.11",
     "js-cookie": "^2.1.1",
     "jquery.serializeJSON": "^2.7.2",
-    "sockjs": "^0.3.4"
+    "sockjs": "^0.3.4",
+    "select2": "^4.0.3"
   }
 }
